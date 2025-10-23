@@ -1,6 +1,6 @@
 /* ---------------------------------- */
 /* ESTILOS GLOBAIS (style.css)        */
-/* Header Azul + Botões Novos         */
+/* Media Query Limpa                  */
 /* ---------------------------------- */
 
 /* --- 1. Reset Básico e Fontes --- */
@@ -17,16 +17,19 @@
     --cor-secundaria-dourado: #FDB913;
     --cor-terciaria-vermelho: #D42E12;
     --cor-verde-sustentavel: #28a745;
-    --cor-fundo: #eaf3fd; /* Fundo azul claro sutil */
+    --cor-fundo: #eaf3fd; 
     --cor-fundo-secao: #FFFFFF; 
     --cor-fundo-card-interno: #f8f9fa; 
     --cor-texto-escuro: #212529;
     --cor-texto-claro: #FFFFFF;
     --cor-texto-secundario: #6c757d;
-    --cor-texto-header-claro: rgba(255, 255, 255, 0.85); /* Branco suave para header */
-    --cor-texto-header-ativo: #FFFFFF; /* Branco puro para ativo/hover */
+    --cor-texto-header-claro: rgba(255, 255, 255, 0.85); 
+    --cor-texto-header-ativo: #FFFFFF; 
     --cor-borda: #dee2e6;
     --cor-icone-wrapper: #eef3f5; 
+    --cor-menu-mobile-hover: rgba(0, 0, 0, 0.03); 
+    --cor-menu-mobile-active-bg: #0D2A4A; 
+    --header-height: 70px; 
 }
 
 body {
@@ -35,82 +38,113 @@ body {
     line-height: 1.6;
 }
 
-/* *** INÍCIO DA MUDANÇA: Header com Cores do Footer *** */
 /* --- 3. Header Padrão --- */
 .header-app {
     width: 100%;
-    background-color: var(--cor-primaria-azul); /* Fundo AZUL ESCURO */
-    padding: 15px 40px; 
+    background-color: var(--cor-primaria-azul); 
+    padding: 10px 25px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid var(--cor-secundaria-dourado); /* Borda DOURADA */
-    /* box-shadow removido */
+    border-bottom: 3px solid var(--cor-secundaria-dourado); 
     position: sticky;
     top: 0;
-    z-index: 1001;
-    
+    z-index: 1001; 
+    min-height: var(--header-height); 
+}
+.header-app .logo-link { display: flex; align-items: center; text-decoration: none; }
+.header-app .header-logo-img { height: 45px; margin-right: 10px;} 
+.header-app .logo-text strong { color: var(--cor-texto-header-ativo); font-size: 1.2rem; font-weight: 600; line-height: 1.1; text-transform: uppercase; display: block; }
+.header-app .logo-text span { color: var(--cor-texto-header-claro); font-size: 0.8rem; }
 
-}
-/* Logo */
-.header-app .logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-.header-app .header-logo-img { 
-    height: 60px; /* Levemente menor */
-    margin-right: 15px;
-
-}
-.header-app .logo-text strong { 
-    color: var(--cor-texto-header-ativo); /* Branco */
-    font-size: 1.5rem; 
-    font-weight: 600; /* Um pouco menos forte */
-    line-height: 1.1;
-    text-transform: uppercase;
-    display: block; 
-}
-.header-app .logo-text span { 
-    color: var(--cor-texto-header-claro); 
-    font-size: 1rem; 
-}
-/* Navegação */
 .header-app .nav-app {
     list-style: none;
-    display: flex;
+    display: flex; 
     align-items: center; 
     margin: 0;
     padding: 0;
     gap: 5px; 
 }
-.header-app .nav-app li {
-    margin: 0; 
-}
+.header-app .nav-app li { margin: 0; }
 .header-app .nav-app a {
     display: inline-block; 
     text-decoration: none;
-    color: var(--cor-texto-header-claro); /* Branco suave padrão */
+    color: var(--cor-texto-header-claro); 
     font-weight: 500; 
     font-size: 0.95rem;
-    padding: 10px 18px; 
+    padding: 10px 15px; 
     border-radius: 6px; 
     transition: background-color 0.2s ease, color 0.2s ease; 
     border: 1px solid transparent; 
     white-space: nowrap; 
 }
 .header-app .nav-app a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo branco levemente transparente no hover */
-    color: var(--cor-texto-header-ativo); /* Branco puro no hover */
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: var(--cor-texto-header-ativo); 
 }
 .header-app .nav-app a.active {
-    background-color: rgba(255, 255, 255, 0.15); /* Fundo branco um pouco mais visível */
-    color: var(--cor-texto-header-ativo); /* Branco puro */
+    background-color: rgba(255, 255, 255, 0.15); 
+    color: var(--cor-texto-header-ativo); 
     font-weight: 600; 
-    /* Sem borda colorida para um look mais clean */
 }
-/* *** FIM DA MUDANÇA *** */
+.nav-icon {
+    margin-right: 8px; 
+    display: none; 
+    vertical-align: middle; 
+    font-size: 1.2em; 
+}
 
+.menu-close {
+     display: none; 
+     position: absolute; 
+     top: 10px; 
+     right: 15px; 
+     background: none;
+     border: none;
+     font-size: 2.2rem; 
+     font-weight: bold; 
+     color: var(--cor-texto-secundario); 
+     cursor: pointer;
+     line-height: 1;
+     padding: 5px; 
+}
+.menu-close:hover {
+    color: var(--cor-texto-escuro); 
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    margin-left: auto; 
+}
+.hamburger-icon {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--cor-texto-header-ativo); 
+    position: relative;
+    border-radius: 3px;
+    transition: background-color 0.2s ease-out;
+}
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-texto-header-ativo);
+    position: absolute;
+    left: 0;
+    border-radius: 3px;
+    transition: transform 0.2s ease-out;
+}
+.hamburger-icon::before { top: -8px; }
+.hamburger-icon::after { bottom: -8px; }
+
+.header-status { display: none; } 
 
 /* --- 4. Conteúdo Geral --- */
 .container {
@@ -123,7 +157,6 @@ body {
     margin-bottom: 45px; 
 }
 
-/* Base para seções com fundo branco/cinza */
 .card-section {
     padding: 30px 25px; 
     border-radius: 8px;
@@ -136,7 +169,7 @@ body {
     background: var(--cor-fundo); 
 }
 
-/* --- 5. Hero Banner --- */
+/* --- 5. Hero Banner (Específico index.html) --- */
 .hero-banner {
     background: var(--cor-fundo-secao);
     padding: 55px 30px 65px 30px; 
@@ -158,7 +191,7 @@ body {
     margin-right: auto;
 }
 
-/* --- 6. Container Lado a Lado --- */
+/* --- 6. Container Lado a Lado (Específico index.html) --- */
 .secoes-lado-a-lado {
     display: flex; 
     gap: 25px; 
@@ -179,22 +212,7 @@ body {
     padding-top: 25px; 
 }
 
-@media (max-width: 992px) {
-    .secoes-lado-a-lado {
-        flex-direction: column; 
-        gap: 0; 
-    }
-    .secoes-lado-a-lado > section {
-         margin-bottom: 45px; 
-         height: auto; 
-    }
-    .secoes-lado-a-lado > section:last-child {
-         margin-bottom: 0; 
-    }
-}
-
-
-/* --- 7. Seção "Por que Cuidar?" --- */
+/* --- 7. Seção "Por que Cuidar?" (Específico index.html) --- */
 .info-sustentabilidade h2 {
     text-align: center;
     color: var(--cor-primaria-azul);
@@ -262,7 +280,7 @@ body {
 }
 
 
-/* --- 8. Seção "Guia Rápido" --- */
+/* --- 8. Seção "Guia Rápido" (Específico index.html) --- */
 .guia-sustentabilidade h2 {
     text-align: center;
     color: var(--cor-primaria-azul);
@@ -343,7 +361,7 @@ body {
 .guia-icon-wrapper.erre { background-color: var(--cor-secundaria-dourado); }
 .guia-icon-wrapper.erre span { font-size: 1rem; font-weight: bold; color: var(--cor-texto-escuro); }
 
-/* --- 9. Destaque Links (Vídeo/Curso) --- */
+/* --- 9. Destaque Links (Vídeo/Curso) (Específico index.html) --- */
 .link-destaque-container {
     margin-top: auto; 
     padding: 20px;
@@ -384,7 +402,7 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.15); 
 }
 
-/* --- 10. Cards Informativos (Mapa/Dashboard) --- */
+/* --- 10. Cards Informativos (Mapa/Dashboard) (Específico index.html) --- */
 .cards-informativos {
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -457,228 +475,134 @@ body {
 
 }
 
-@media (max-width: 610px) {
 
-    /* --- AJUSTE CRÍTICO: Container para usar toda a largura --- */
-    .container {
-        /* max-width e margin: auto mantidos, mas ajustando o padding para mobile */
-        padding: 0 15px; /* Reduz o padding lateral para ter mais espaço útil */
-    }
+/* --- 12. Media Query para Menu Hambúrguer e Ajustes Mobile Globais --- */
+@media (max-width: 610px) { 
+    /* Ajustes Globais Mobile */
+    .container { padding: 0 15px; margin: 20px auto; }
+    .main-footer { padding: 20px 15px; margin-top: 30px;}
+    .footer-logos { gap: 15px; flex-wrap: wrap; }
+    .footer-logos img { max-height: 30px; }
+    .header-app { padding: 10px 15px; } /* Ajuste padding header mobile */
 
-
-    /* --- AJUSTE CRÍTICO: Header (375px) --- */
-    .header-app {
-        /* padding: 15px 40px; é muito grande para 375px. Ajustando para: */
-        padding: 15px 15px; /* Menor padding lateral */
-        
-        /* Quebra o flex para o logo e navegação ficarem em linhas separadas */
-        flex-direction: column; 
-        align-items: flex-start; /* Alinha o conteúdo à esquerda */
-    }
-
-    /* Ajusta o espaçamento do logo */
-    .header-app .header-logo-img { 
-        height: 45px; /* Diminui a altura do logo para caber melhor */
-        margin-right: 10px;
-    }
-    .header-app .logo-text strong { 
-        font-size: 1.2rem; /* Reduz um pouco o texto principal */
-    }
-    .header-app .logo-text span { 
-        font-size: 0.8rem; /* Reduz um pouco o subtítulo */
-    }
-
-    /* Ajusta a navegação */
+    /* Estilos Menu Mobile */
     .header-app .nav-app {
-        width: 100%; /* Ocupa toda a largura abaixo do logo */
-        flex-wrap: wrap; /* Permite que os itens quebrem linha */
-        justify-content: center; /* Centraliza os botões */
-        margin-top: 10px; /* Adiciona espaço entre logo e navegação */
-        gap: 8px; /* Aumenta um pouco o espaçamento entre os botões */
+        display: none; 
+        position: fixed; 
+        top: var(--header-height); 
+        right: 0;
+        width: 80%; 
+        max-width: 320px;
+        height: calc(100vh - var(--header-height)); 
+        background-color: var(--cor-fundo); 
+        box-shadow: -5px 0 15px rgba(0,0,0,0.15); 
+        flex-direction: column; 
+        align-items: stretch; 
+        padding: 0; 
+        gap: 0; 
+        transform: translateX(100%); 
+        transition: transform 0.3s ease-out;
+        z-index: 1002; 
+        overflow-y: auto; 
     }
-    .header-app .nav-app a {
-        padding: 8px 12px; /* Reduz o padding dos botões */
-        font-size: 0.85rem; /* Reduz a fonte dos botões */
-        white-space: normal; /* Permite a quebra de texto (opcional, mas ajuda) */
+
+    .header-app .nav-app.nav-app-mobile-active {
+        display: flex; 
+        transform: translateX(0); 
+    }
+
+    .header-app .nav-app li {
+        width: 100%; 
+        border-bottom: 1px solid var(--cor-borda); 
+    }
+     .header-app .nav-app li:first-child { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 8px 15px; 
+        height: auto; 
+        background-color: var(--cor-fundo-secao); 
+        color: var(--cor-texto-escuro); 
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--cor-borda); 
+        position: sticky; 
+        top: 0;
+        z-index: 1003; 
+        margin-bottom: 0; 
     }
     
+    .header-app .nav-app li:first-child .menu-close {
+        position: static; 
+        margin-left: 0; 
+        font-size: 1.8rem; 
+        color: var(--cor-texto-secundario); 
+        padding: 0; 
+        line-height: 1; 
+    }
+     .header-app .nav-app li:first-child .menu-close:hover {
+        color: var(--cor-texto-escuro); 
+    }
+
+    .header-app .nav-app li:first-child a {
+        display: none; 
+    }
+
+    .header-app .nav-app li:not(:first-child) a { 
+        display: flex; 
+        align-items: center;
+        padding: 16px 25px; 
+        border-radius: 0; 
+        width: 100%;
+        font-size: 1rem; 
+        border: none; 
+        color: var(--cor-primaria-azul); 
+        font-weight: 500;
+        background-color: transparent; 
+        transition: background-color 0.2s ease, color 0.2s ease; 
+    }
+    .header-app .nav-app a .nav-icon {
+        display: inline-block; 
+        width: 24px; 
+        text-align: center;
+        margin-right: 15px; 
+        font-size: 1.1em; 
+        color: var(--cor-texto-secundario); 
+     }
     
-    /* --- AJUSTE GERAL: Fontes e Espaçamentos (375px) --- */
-    .hero-banner {
-        padding: 30px 15px 40px 15px; /* Reduz o padding geral do banner */
+    .header-app .nav-app li:not(:first-child) a:hover {
+        background-color: var(--cor-menu-mobile-hover); 
+        color: var(--cor-primaria-azul); 
     }
-    .hero-banner h1 {
-        font-size: 1.8rem; /* Reduz o título principal */
-    }
-    .hero-banner p {
-        font-size: 1rem; /* Reduz o parágrafo */
-    }
-    
-    .secoes-lado-a-lado {
-        /* Seção lado a lado já está como column em @media (max-width: 992px), mas 
-           garantindo que se mantenha. */
-        flex-direction: column;
-    }
-    
-    /* --- Cards Informativos (375px) --- */
-    .cards-informativos {
-        /* Garante que o grid tenha 1 coluna para telas muito pequenas */
-        grid-template-columns: 1fr; 
-        gap: 15px; /* Reduz o gap entre cards */
-    }
-    .card { 
-        padding: 20px; /* Reduz o padding interno do card */
-    }
-    .card h3 { 
-        font-size: 1.2rem; /* Reduz o título do card */
-    }
+     .header-app .nav-app li:not(:first-child) a.active {
+         background-color: var(--cor-primaria-azul); 
+         color: var(--cor-texto-header-ativo); 
+         font-weight: 600; 
+     }
+     .header-app .nav-app li:not(:first-child) a.active .nav-icon {
+         color: var(--cor-texto-header-ativo); 
+     }
 
-
-    /* --- Ajuste no Rodapé (375px) --- */
-    .main-footer {
-        padding: 20px 15px;
-    }
-    .footer-logos {
-        gap: 15px; /* Reduz o espaçamento entre as logos */
-        flex-wrap: wrap; /* Permite que as logos quebrem a linha se não couberem */
-    }
-    .footer-logos img {
-        max-height: 30px; /* Reduz o tamanho das logos */
-    }
-
-
-    /* --- Conteúdo interno das seções (7 e 8) --- */
-    .info-card, .guia-card {
-        gap: 10px; /* Reduz o espaçamento interno */
-        padding: 12px; /* Reduz o padding do card */
-    }
-    .info-text p, .guia-text p { 
-        font-size: 0.95rem; /* Leve redução para caber o texto */
-    }
-    .info-sustentabilidade h2, .guia-sustentabilidade h2 {
-        font-size: 1.5rem; /* Reduz os títulos das seções */
-        margin-bottom: 20px;
-    }
-
+    .menu-toggle { display: block; }
+    .menu-close { display: block; } 
+    .header-status { display: none; }
 }
 
-@media (max-width: 610px) {
-
-    /* --- AJUSTE CRÍTICO: Container e Espaçamento Geral (Mobile First) --- */
-    .container {
-        padding: 0 15px; /* Reduz o padding lateral para ter mais espaço útil */
-        margin: 20px auto; /* Reduz a margem vertical do container */
-    }
-
-    .section-spacing {
-        margin-bottom: 30px; /* Reduz o espaçamento entre seções */
-    }
-
-    /* --- AJUSTE CRÍTICO: Header e Navegação --- */
-    .header-app {
-        padding: 15px 15px; /* Menor padding lateral no header */
-        flex-direction: column; /* Empilha o logo e a navegação */
-        align-items: flex-start; /* Alinha o conteúdo à esquerda */
-    }
-
-    /* Ajuste do Logo */
-    .header-app .header-logo-img { 
-        height: 45px; /* Diminui a altura do logo */
-        margin-right: 10px;
-    }
-    .header-app .logo-text strong { 
-        font-size: 1.2rem; /* Reduz o texto principal do logo */
-    }
-    .header-app .logo-text span { 
-        font-size: 0.8rem; /* Reduz o subtítulo do logo */
-    }
-
-    /* Ajuste da Navegação */
-    .header-app .nav-app {
-        width: 100%; /* Ocupa toda a largura */
-        flex-wrap: wrap; /* Permite que os botões quebrem linha */
-        justify-content: center; /* Centraliza os botões */
-        margin-top: 10px; 
-        gap: 8px; 
-    }
-    .header-app .nav-app a {
-        padding: 8px 12px; /* Reduz o padding dos botões de navegação */
-        font-size: 0.85rem; /* Reduz a fonte dos botões */
-        white-space: normal;
-    }
-    
-    
-    /* --- Hero Banner --- */
-    .hero-banner {
-        padding: 30px 15px 40px 15px;
-    }
-    .hero-banner h1 {
-        font-size: 1.8rem;
-    }
-    .hero-banner p {
-        font-size: 1rem;
-    }
-    
-    /* --- Container Lado a Lado --- */
-    .secoes-lado-a-lado {
-        flex-direction: column;
-    }
-    .secoes-lado-a-lado > section {
-         margin-bottom: 30px; 
-    }
-    
-    /* --- Seções "Por que Cuidar?" (7) e "Guia Rápido" (8) --- */
-    .info-sustentabilidade h2, .guia-sustentabilidade h2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-    .info-card, .guia-card {
-        gap: 10px;
-        padding: 12px;
-    }
-    .info-text p, .guia-text p { 
-        font-size: 0.95rem; 
-    }
-    .info-icon-wrapper, .guia-icon-wrapper {
-        width: 35px; 
-        height: 35px;
-    }
-    .info-icon, .guia-icon {
-        font-size: 1.2rem;
-    }
-
-    /* --- Destaque Links (9) --- */
-    .link-destaque-container {
-        padding: 15px;
-        margin-top: 20px;
-    }
-    .link-botao {
-        font-size: 0.9rem;
-    }
-
-    /* --- Cards Informativos (10) --- */
-    .cards-informativos {
-        grid-template-columns: 1fr; /* Força 1 coluna nos cards principais */
-        gap: 15px;
-    }
-    .card { 
-        padding: 20px;
-    }
-    .card h3 { 
-        font-size: 1.2rem;
-    }
-    
-    /* --- Ajuste no Rodapé (11) --- */
-    .main-footer {
-        padding: 20px 15px;
-        margin-top: 30px;
-    }
-    .footer-logos {
-        gap: 15px; 
-        flex-wrap: wrap; 
-    }
-    .footer-logos img {
-        max-height: 30px; 
-    }
-
+/* --- Media query para ajustes específicos do index.html (mantidos) --- */
+@media (max-width: 992px) {
+    .secoes-lado-a-lado { flex-direction: column; gap: 0; }
+    .secoes-lado-a-lado > section { margin-bottom: 45px; height: auto; } 
+    .secoes-lado-a-lado > section:last-child { margin-bottom: 0; }
+}
+@media (max-width: 610px) { 
+    .hero-banner { padding: 30px 15px 40px 15px; }
+    .hero-banner h1 { font-size: 1.8rem; }
+    .hero-banner p { font-size: 1rem; }
+    .secoes-lado-a-lado > section { margin-bottom: 30px; } 
+    .cards-informativos { grid-template-columns: 1fr; gap: 15px; }
+    .card { padding: 20px; }
+    .card h3 { font-size: 1.2rem; }
+    .info-card, .guia-card { gap: 10px; padding: 12px; }
+    .info-text p, .guia-text p { font-size: 0.95rem; }
+    .info-sustentabilidade h2, .guia-sustentabilidade h2 { font-size: 1.5rem; margin-bottom: 20px; }
 }

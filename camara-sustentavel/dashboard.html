@@ -4,26 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Tatuí Sustentável</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="css/dashboard.css?v=1.2"> 
+    <title>Visão Geral | Tatuí Sustentável</title>
+    <link rel="stylesheet" href="css/style.css?v=1.4">
+    <link rel="stylesheet" href="css/dashboard.css?v=1.2">
 </head>
 
 <body>
+
     <header class="header-app">
         <a href="../index.html" class="logo-link">
-            <img src="./assets/brasao-tatui.webp" alt="Brasão de Tatuí" class="header-logo-img"> 
+            <img src="./assets/brasao-tatui.webp" alt="Brasão de Tatuí" class="header-logo-img">
             <div class="logo-text">
                 <strong>Prefeitura de Tatuí</strong>
-                <span><b>Sistema de Gestão Sustentável</b></span>
+                <span>Sistema de Gestão Sustentável</span>
             </div>
         </a>
+
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span class="hamburger-icon"></span>
+        </button>
+
         <ul class="nav-app">
-            <li><a href="../index.html">Início</a></li> 
-            <li><a href="mapa.html">Onde Descartar?</a></li> 
-            <li><a href="dashboard.html" class="active">Visão Geral</a></li> 
+            <li>
+                <button class="menu-close" aria-label="Fechar menu">&times;</button>
+            </li>
+            <li><a href="../index.html"><span class="nav-icon">🏠</span> Início</a></li>
+            <li><a href="mapa.html"><span class="nav-icon">📌</span> Onde Descartar?</a></li>
+            <li><a href="dashboard.html" class="active"><span class="nav-icon">📊</span> Visão Geral</a></li>
         </ul>
     </header>
 
@@ -72,7 +79,7 @@
             </div>
 
             <div class="card-dash kpi-card">
-                <span class="kpi-icon custo">💲</span> 
+                <span class="kpi-icon custo">💲</span>
                 <div class="kpi-info">
                     <h3>Custo de Energia</h3>
                     <p class="kpi-value">R$ 75.800</p>
@@ -93,7 +100,7 @@
 
         <section class="main-grid">
 
-            <div class="card-dash chart-container grid-col-span-3"> 
+            <div class="card-dash chart-container grid-col-span-3">
                 <div class="card-dash-header">
                     <h2>Tendências de Consumo Municipal</h2>
                 </div>
@@ -186,7 +193,8 @@
                         <h4>Recomendação do Sistema</h4>
                         <p class="predictive-recommendation">
                             <span class="rec-icon">💡</span>
-                            <span>Consumo elevado detectado no Depto. Obras. <b>Recomendação:</b> Verificar HVAC noturno.</span>
+                            <span>Consumo elevado detectado no Departamento de Obras.<b> Recomendação: </b>Verificar HVAC
+                                noturno.</span>
                         </p>
                     </div>
                 </div>
@@ -210,11 +218,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>🥇 1</td><td>Administração Central</td><td class="eficiencia-boa">94%</td><td>18.7</td><td>4.2</td><td>5</td></tr>
-                    <tr><td>🥈 2</td><td>Cultura e Turismo</td><td class="eficiencia-boa">91%</td><td>17.5</td><td>4.6</td><td>3</td></tr>
-                    <tr><td>🥉 3</td><td>Obras e Serviços</td><td class="eficiencia-media">87%</td><td>42.3</td><td>9.8</td><td>10</td></tr>
-                    <tr><td># 4</td><td>Saúde Pública</td><td class="eficiencia-media">85%</td><td>35.8</td><td>12.1</td><td>35</td></tr>
-                    <tr><td># 5</td><td>Educação Municipal</td><td class="eficiencia-ruim">82%</td><td>28.5</td><td>8.2</td><td>40</td></tr>
+                    <tr>
+                        <td>🥇 1</td>
+                        <td>Administração Central</td>
+                        <td class="eficiencia-boa">94%</td>
+                        <td>18.7</td>
+                        <td>4.2</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>🥈 2</td>
+                        <td>Cultura e Turismo</td>
+                        <td class="eficiencia-boa">91%</td>
+                        <td>17.5</td>
+                        <td>4.6</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>🥉 3</td>
+                        <td>Obras e Serviços</td>
+                        <td class="eficiencia-media">87%</td>
+                        <td>42.3</td>
+                        <td>9.8</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td># 4</td>
+                        <td>Saúde Pública</td>
+                        <td class="eficiencia-media">85%</td>
+                        <td>35.8</td>
+                        <td>12.1</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td># 5</td>
+                        <td>Educação Municipal</td>
+                        <td class="eficiencia-ruim">82%</td>
+                        <td>28.5</td>
+                        <td>8.2</td>
+                        <td>40</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
@@ -233,7 +276,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <script src="js/charts.js"></script>
-    <script src="js/global.js"></script> 
+    <script src="js/global.js"></script>
 
 </body>
+
 </html>

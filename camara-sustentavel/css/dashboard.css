@@ -346,156 +346,100 @@
 
 @media (max-width: 610px) {
 
-
     .container {
-        padding: 0 15px; /* Reduz o padding lateral para ter mais espaço útil */
-        margin: 20px auto; /* Reduz a margem vertical do container */
-    }
-
-    .section-spacing {
-        margin-bottom: 30px; /* Reduz o espaçamento entre seções */
-    }
-
-    /* --- AJUSTE CRÍTICO: Header e Navegação --- */
-    .header-app {
-        padding: 15px 15px; /* Menor padding lateral no header */
-        flex-direction: column; /* Empilha o logo e a navegação */
-        align-items: flex-start; /* Alinha o conteúdo à esquerda */
-    }
-
-    /* Ajuste do Logo */
-    .header-app .header-logo-img { 
-        height: 45px; /* Diminui a altura do logo */
-        margin-right: 10px;
-    }
-    .header-app .logo-text strong { 
-        font-size: 1.2rem; /* Reduz o texto principal do logo */
-    }
-    .header-app .logo-text span { 
-        font-size: 0.8rem; /* Reduz o subtítulo do logo */
-    }
-
-    /* Ajuste da Navegação */
-    .header-app .nav-app {
-        width: 100%; /* Ocupa toda a largura */
-        flex-wrap: wrap; /* Permite que os botões quebrem linha */
-        justify-content: center; /* Centraliza os botões */
-        margin-top: 10px; 
-        gap: 8px; 
-    }
-    .header-app .nav-app a {
-        padding: 8px 12px; /* Reduz o padding dos botões de navegação */
-        font-size: 0.85rem; /* Reduz a fonte dos botões */
-        white-space: normal;
-    }
-    
-    
-    /* --- Hero Banner --- */
-    .hero-banner {
-        padding: 30px 15px 40px 15px;
-    }
-    .hero-banner h1 {
-        font-size: 1.8rem;
-    }
-    .hero-banner p {
-        font-size: 1rem;
-    }
-    
-    /* --- Container Lado a Lado --- */
-    .secoes-lado-a-lado {
-        flex-direction: column;
-    }
-    .secoes-lado-a-lado > section {
-         margin-bottom: 30px; 
-    }
-    
-    /* --- Seções "Por que Cuidar?" (7) e "Guia Rápido" (8) --- */
-    .info-sustentabilidade h2, .guia-sustentabilidade h2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-    .info-card, .guia-card {
-        gap: 10px;
-        padding: 12px;
-    }
-    .info-text p, .guia-text p { 
-        font-size: 0.95rem; 
-    }
-    .info-icon-wrapper, .guia-icon-wrapper {
-        width: 35px; 
-        height: 35px;
-    }
-    .info-icon, .guia-icon {
-        font-size: 1.2rem;
-    }
-
-    /* --- Destaque Links (9) --- */
-    .link-destaque-container {
-        padding: 15px;
-        margin-top: 20px;
-    }
-    .link-botao {
-        font-size: 0.9rem;
-    }
-
-    /* --- Cards Informativos (10) --- */
-    .cards-informativos {
-        grid-template-columns: 1fr; 
-        gap: 15px;
-    }
-    .card { 
-        padding: 20px;
-    }
-    .card h3 { 
-        font-size: 1.2rem;
-    }
-    
-    .ranking-container {
-
-        overflow-x: visible; 
-    }
-
-    .ranking-table th:nth-child(4), 
-    .ranking-table td:nth-child(4), 
-    .ranking-table th:nth-child(5), 
-    .ranking-table td:nth-child(5), 
-    .ranking-table th:nth-child(6), 
-    .ranking-table td:nth-child(6) {
-        display: none !important; 
-    }
-    
-    .ranking-table th:nth-child(2),
-    .ranking-table td:nth-child(2) {
-        width: 55%; 
-    }
-
-    /* --- Ajuste no Rodapé (11) --- */
-    .main-footer {
-        padding: 20px 15px;
-        margin-top: 30px;
-    }
-    .footer-logos {
-        gap: 15px; 
-        flex-wrap: wrap; 
-    }
-    .footer-logos img {
-        max-height: 30px; 
-    }
-
-    .container {
-        padding: 0 15px;
+        padding: 0 15px; 
         margin: 20px auto; 
     }
 
-    /* --- NOVO AJUSTE CRÍTICO: Centraliza o título principal --- */
+    .section-spacing {
+        margin-bottom: 30px; 
+    }
+    
     .dashboard-header {
         text-align: center; 
-        padding: 0 15px;
+        padding: 0; 
     }
-    /* Opcional: Ajuste o tamanho do título para caber melhor */
     .dashboard-header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem; 
         margin-bottom: 20px;
     }
 
+    .kpi-grid {
+        /* *** INÍCIO DA MUDANÇA: Volta para 1 coluna *** */
+        grid-template-columns: 1fr; /* Garante 1 coluna */
+        /* *** FIM DA MUDANÇA *** */
+        gap: 15px; /* Aumenta um pouco o gap vertical */
+    }
+    .kpi-card {
+        padding: 15px; 
+        gap: 15px; /* Mantém gap interno original */
+        /* Remove estilos que eram para 2 colunas */
+        /* flex-direction: column; */ 
+        /* text-align: center; */ 
+    }
+    .kpi-icon {
+        width: 45px; /* Tamanho um pouco maior que antes */ 
+        height: 45px;
+        font-size: 1.6rem;
+        padding: 10px;
+        margin-bottom: 0; /* Remove margem extra */
+    }
+    .kpi-info .kpi-value {
+        font-size: 1.4rem; /* Tamanho um pouco maior */ 
+    }
+    .kpi-info h3, .kpi-info .kpi-change {
+        font-size: 0.85rem; /* Tamanho um pouco maior */
+    }
+     /* Ajustes para o Grid Principal em mobile */
+    .main-grid {
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+    }
+    .chart-container.grid-col-span-3,
+    .metas-container,
+    .alerts-container,
+    .predictive-container {
+        grid-column: span 1; 
+    }
+    .card-dash {
+        padding: 20px; 
+    }
+     .card-dash-header h2 {
+         font-size: 1.1rem; 
+     }
+    .alerts-list { padding-left: 0; } 
+    .alert-item { padding: 10px 0; gap: 10px;}
+    .alert-info p { font-size: 0.9rem; }
+    .alert-info .alert-subtext { font-size: 0.8rem; }
+     .meta-item { margin-bottom: 15px; }
+     .meta-header { font-size: 0.85rem; }
+     .predictive-value { font-size: 1.8rem; }
+     .predictive-item h4 { font-size: 0.9rem; }
+     .predictive-recommendation { padding: 10px; gap: 10px; margin-top: 10px;}
+     .rec-icon { font-size: 1.2rem; }
+     .predictive-status { font-size: 0.8rem; }
+
+     .ranking-container {
+        overflow-x: auto; 
+    }
+     .ranking-table th:nth-child(4), 
+     .ranking-table td:nth-child(4), 
+     .ranking-table th:nth-child(5), 
+     .ranking-table td:nth-child(5), 
+     .ranking-table th:nth-child(6), 
+     .ranking-table td:nth-child(6) {
+         display: none; 
+     }
+     
+     .ranking-table th:nth-child(2),
+     .ranking-table td:nth-child(2) {
+         width: 55%; 
+     }
+     .ranking-table th, .ranking-table td {
+         padding: 10px 8px; 
+         font-size: 0.9rem; 
+     }
+      .ranking-table th {
+          font-size: 0.75rem; 
+      }
 }
